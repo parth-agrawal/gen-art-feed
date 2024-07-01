@@ -4,17 +4,27 @@ import Image from "next/image";
 import { ArtInterpreter } from "./ArtInterpreter";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SignInButton, SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-react";
+import { useState } from "react";
 
 export default function Home() {
+
+
+
   return (
     <>
-
-      <div className="h-screen flex justify-center items-center">
+      <div className="h-screen flex flex-col justify-center items-center">
 
         gang gang!
+
+
         <SignedOut >
-          You need to sign in
-          <SignInButton>Sign in boiii</SignInButton>
+          <div>
+
+            You need to sign in
+          </div>
+          <SignInButton forceRedirectUrl={"/api/sign-up-callback"}>
+            Sign in boiii
+          </SignInButton>
         </SignedOut>
 
         <SignedIn>
