@@ -41,37 +41,19 @@ type ArtParamsState = {
 
 }
 
-// Art controls number of boxes
-
-const ArtControls = ({ boxCount, setBoxCount }: {
-    boxCount: number, setBoxCount: React.Dispatch<React.SetStateAction<number>>
-}) => {
+// Art controls allows the user to set the number of boxes
+// 
 
 
 
 
+// needs to accept boxcount 
 
-    return (
-        <div>
-            <button> boxCount: {boxCount} </button>
-
-        </div>
-    )
-
-}
-
-// Create our custom element
-class CustomElement extends GridHelper { }
-
-// Extend so the reconciler will learn about it
-extend({ CustomElement })
-
-
-export const ArtInterpreter = () => {
+export const ArtInterpreter = ({ boxCount }: { boxCount: number }) => {
     // takes in art parameters
     // renders image
 
-    const [boxCount, setBoxCount] = useState<number>(1)
+    // const [boxCount, setBoxCount] = useState<number>(1)
 
 
 
@@ -80,7 +62,7 @@ export const ArtInterpreter = () => {
 
 
     return (
-        <Canvas onClick={() => setBoxCount(boxCount + 1)}>
+        <Canvas>
             {/* <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} /> */}
 
             <ambientLight intensity={Math.PI / 2} />
@@ -96,7 +78,7 @@ export const ArtInterpreter = () => {
                 else {
                     boxX = idx + 0.5;
                 }
-                return (<Box position={[boxX, 0, 0]} />)
+                return (<Box key={idx} position={[boxX, 0, 0]} />)
 
             })}
 

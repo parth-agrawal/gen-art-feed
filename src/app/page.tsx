@@ -9,7 +9,6 @@ export default function Home() {
       <div className="h-screen flex justify-center items-center">
 
         gang gang!
-        <ArtInterpreter />
       </div>
 
     </>
