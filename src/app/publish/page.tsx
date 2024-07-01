@@ -5,10 +5,22 @@ import { ArtInterpreter } from "../ArtInterpreter"
 import { ArtControls } from "../ArtControls"
 import prisma from "../../../prisma/client";
 import { auth } from "@clerk/nextjs/server";
+import { useAuth } from "@clerk/nextjs";
+import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/navigation";
 
 export const PublishScreen = () => {
 
-    auth().protect({ unauthenticatedUrl: "/" });
+    const router = useRouter();
+
+    const user = useAuth();
+
+    if (!user.isLoaded) {
+        return <div>Loading...</div>
+    }
+    if (!user.isSignedIn) {
+        return router.push("/")
+    }
 
 
     const [boxCount, setBoxCount] = useState<number>(1)
