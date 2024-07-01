@@ -13,7 +13,7 @@ type ArtParams = {
 
 }
 
-const Box = (props: any) => {
+export const Box = (props: any) => {
     const meshRef = useRef<Mesh>()
     const [hovered, setHover] = useState(false)
     const [active, setActive] = useState(false)
