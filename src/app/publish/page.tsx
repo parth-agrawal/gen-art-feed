@@ -1,43 +1,36 @@
-"use client";
+"use server";
 
 import { useState } from "react"
 import { ArtInterpreter } from "../ArtInterpreter"
 import { ArtControls } from "../ArtControls"
 import prisma from "../../../prisma/client";
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { useAuth } from "@clerk/nextjs";
-import { redirect } from "next/dist/server/api-utils";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
+import { handlePublish } from "./actions";
+import NewArtMaker from "./components/NewArtMaker";
 
-export const PublishScreen = () => {
+export const PublishScreen = async () => {
 
-    const router = useRouter();
+    const clerkUser = await currentUser();
 
-    const user = useAuth();
 
-    if (!user.isLoaded) {
-        return <div>Loading...</div>
-    }
-    if (!user.isSignedIn) {
-        return router.push("/")
+    if (!clerkUser) {
+        return redirect("/");
     }
 
+    // if (!clerkUser.isLoaded) {
+    //     return <div>Loading...</div>
+    // }
+    // if (!clerkUser || !clerkUser.isSignedIn) {
+    //     return router.push("/")
+    // }
 
-    const [boxCount, setBoxCount] = useState<number>(1)
 
-    function handlePublish() {
-
-    }
 
     return (
         <div>
-
-            <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} />
-
-            <ArtInterpreter boxCount={boxCount} />
-            <button onClick={handlePublish}>
-                Publish
-            </button>
+            <NewArtMaker />
         </div>
     )
 }
