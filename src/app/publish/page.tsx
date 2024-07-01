@@ -8,13 +8,17 @@ export const PublishScreen = () => {
 
     const [boxCount, setBoxCount] = useState<number>(1)
 
+    function handlePublish() {
+
+    }
+
     return (
         <div>
 
             <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} />
 
             <ArtInterpreter boxCount={boxCount} />
-            <button>
+            <button onClick={handlePublish}>
                 Publish
             </button>
         </div>
