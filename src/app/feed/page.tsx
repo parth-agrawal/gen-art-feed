@@ -1,7 +1,24 @@
+import { useAuth } from "@clerk/nextjs";
 import prisma from "../../../prisma/client";
 import { ArtInterpreter } from "../ArtInterpreter";
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 export const FeedScreen = () => {
+
+    auth().protect({ unauthenticatedUrl: "/" });
+
+
+    // const { isLoaded, isSignedIn } = useAuth();
+
+    // if (!isLoaded) {
+    //     return <div>Loading...</div>
+    // }
+    // if (!isSignedIn) {
+    //     return (
+    //         redirect("/")
+    //     );
+    // }
 
 
 

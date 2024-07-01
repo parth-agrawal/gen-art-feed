@@ -4,8 +4,12 @@ import { useState } from "react"
 import { ArtInterpreter } from "../ArtInterpreter"
 import { ArtControls } from "../ArtControls"
 import prisma from "../../../prisma/client";
+import { auth } from "@clerk/nextjs/server";
 
 export const PublishScreen = () => {
+
+    auth().protect({ unauthenticatedUrl: "/" });
+
 
     const [boxCount, setBoxCount] = useState<number>(1)
 
