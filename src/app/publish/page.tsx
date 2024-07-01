@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ArtInterpreter } from "../ArtInterpreter"
 import { ArtControls } from "../ArtControls"
+import prisma from "../../../prisma/client";
 
 export const PublishScreen = () => {
 
