@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 import { handlePublish } from "./actions";
 import NewArtMaker from "./components/NewArtMaker";
 
-export const PublishScreen = async () => {
+const PublishScreen = async () => {
 
     const clerkUser = await currentUser();
 

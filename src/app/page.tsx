@@ -5,6 +5,7 @@ import { ArtInterpreter } from "./ArtInterpreter";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SignInButton, SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -22,14 +23,30 @@ export default function Home() {
 
             You need to sign in
           </div>
-          <SignInButton forceRedirectUrl={"/api/sign-up-callback"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
+          <SignInButton forceRedirectUrl={"/"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
             Sign in boiii
           </SignInButton>
         </SignedOut>
 
+
         <SignedIn>
-          You're signed in!
-          <SignOutButton>Sign out my homie</SignOutButton>
+          <div className="flex flex-col gap-4 items-center justify-center">
+            You&apos;re signed in!
+            <div className="border border-black rounded-md p-2">
+              <SignOutButton>Sign out</SignOutButton>
+            </div>
+            <div className="border border-black rounded-md p-2">
+              <Link href="/feed">
+                View art feed
+              </Link>
+            </div>
+            <div className="border border-black rounded-md p-2">
+
+              <Link href="/publish">
+                Publish a new piece of art
+              </Link>
+            </div>
+          </div>
         </SignedIn>
       </div >
 
