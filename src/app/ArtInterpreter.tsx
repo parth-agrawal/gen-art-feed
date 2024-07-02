@@ -61,28 +61,31 @@ export const ArtInterpreter = ({ boxCount }: { boxCount: number }) => {
     return (
         <>
 
-            <Canvas>
-                {/* <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} /> */}
+            <div className="bg-white">
 
-                <ambientLight intensity={Math.PI / 2} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-                <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+                <Canvas>
+                    {/* <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} /> */}
 
-                {Array.from({ length: boxCount }).map((_, idx) => {
-                    let boxX = 0;
-                    if (idx % 2 == 0) {
-                        boxX = -idx - 0.5;
+                    <ambientLight intensity={Math.PI / 2} />
+                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+                    <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
 
-                    }
-                    else {
-                        boxX = idx + 0.5;
-                    }
-                    return (<Box key={idx} position={[boxX, 0, 0]} />)
-                })}
+                    {Array.from({ length: boxCount }).map((_, idx) => {
+                        let boxX = 0;
+                        if (idx % 2 == 0) {
+                            boxX = -idx - 0.5;
 
-                {/* <Box position={[-1.2, 0, 0]} />
+                        }
+                        else {
+                            boxX = idx + 0.5;
+                        }
+                        return (<Box key={idx} position={[boxX, 0, 0]} />)
+                    })}
+
+                    {/* <Box position={[-1.2, 0, 0]} />
             <Box position={[1.2, 0, 0]} /> */}
-            </Canvas>
+                </Canvas>
+            </div>
         </>
 
     )
