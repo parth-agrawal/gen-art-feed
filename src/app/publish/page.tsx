@@ -20,12 +20,6 @@ const PublishScreen = async () => {
         return redirect("/");
     }
 
-    // if (!clerkUser.isLoaded) {
-    //     return <div>Loading...</div>
-    // }
-    // if (!clerkUser || !clerkUser.isSignedIn) {
-    //     return router.push("/")
-    // }
 
 
 
