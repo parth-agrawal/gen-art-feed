@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getArts } from "../actions";
 import { ArtInterpreter } from "@/app/ArtInterpreter";
 import { Art } from "@prisma/client";
+import Link from "next/link";
 
 export const Feed = () => {
 
@@ -21,6 +22,12 @@ export const Feed = () => {
     return (
         <div>
             Feed:
+            <div className="border border-black rounded w-40 p-2">
+
+                <Link href="/publish">
+                    Publish a new piece of art
+                </Link>
+            </div>
             {arts.map((art) => {
                 return (
                     <ArtInterpreter key={art.id} boxCount={art.boxCount} />

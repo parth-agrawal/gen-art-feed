@@ -5,7 +5,7 @@ export const ArtControls = ({ boxCount, setBoxCount }: {
 
     return (
         <div>
-            <button onClick={() => setBoxCount(boxCount + 1)}> boxCount: {boxCount} </button>
+            <button className="border border-black rounded p-2" onClick={() => setBoxCount(boxCount + 1)}> Add a box. Boxes: {boxCount} </button>
 
         </div>
     )
