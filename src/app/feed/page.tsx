@@ -12,9 +12,9 @@ const FeedScreen = async () => {
     const clerkUser = await currentUser();
 
 
-    if (!clerkUser) {
-        return redirect("/");
-    }
+    // if (!clerkUser) {
+    //     return redirect("/");
+    // }
 
 
 

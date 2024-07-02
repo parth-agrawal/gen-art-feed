@@ -1,5 +1,5 @@
 "use client"
-import { SignInButton, SignedIn, SignedOut, useAuth, useClerk } from "@clerk/nextjs"
+import { SignInButton, SignedIn, SignedOut, UserButton, UserProfile, useAuth, useClerk } from "@clerk/nextjs"
 import clsx from "clsx"
 import { Link } from "lucide-react"
 import { usePathname } from 'next/navigation'
@@ -31,7 +31,11 @@ export const Navbar = () => {
                     </SignInButton>
                 </SignedOut>
                 <SignedIn>
-                    <Avatar imageUrl={avatarImage || ""} />
+
+                    {/* <Avatar imageUrl={avatarImage || ""} /> */}
+                    <UserButton />
+
+
 
                 </SignedIn>
 
