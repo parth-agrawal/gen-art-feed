@@ -9,6 +9,7 @@ import { useAuth } from "@clerk/nextjs";
 import { currentUser, getAuth } from "@clerk/nextjs/server";
 import ImageCard from "@/components/ImageCard";
 import { User } from "@prisma/client";
+import Button from "@/components/Button";
 
 export const NewArtMaker = () => {
 
@@ -33,19 +34,28 @@ export const NewArtMaker = () => {
     }
 
     return (
-        <div>
-            <ImageCard description={name}>
+        <div className="flex flex-col h-screen items-center justify-center bg-bg">
+            <ImageCard description={"Creator: " + name}>
 
                 <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} />
                 <ArtInterpreter boxCount={boxCount} />
             </ImageCard>
-            <button className="border border-black rounded-md p-2" onClick={() => handlePublish(boxCount)}>
-                Publish
-            </button>
-            <div className="border border-black rounded p-2">
+
+            <div>
+                Controls go here
+            </div>
+
+            <div className="flex flex-row w-full justify-between">
+
                 <Link href="/feed">
-                    View art feed
+
+                    <Button onClick={() => { }}> Back to feed </Button>
                 </Link>
+
+
+
+                <Button onClick={() => handlePublish(boxCount)}> Publish </Button>
+
             </div>
         </div>
     )

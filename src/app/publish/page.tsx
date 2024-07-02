@@ -30,8 +30,7 @@ const PublishScreen = async () => {
 
 
     return (
-        <div>
-            <Navbar />
+        <div className="flex flex-col h-screen">
             <NewArtMaker />
         </div>
     )

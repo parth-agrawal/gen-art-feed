@@ -53,14 +53,13 @@ export const Feed = () => {
 
     return (
         <>
-            <div className="flex flex-col w-full h-full bg-bg items-center justify-center">
+            <div className="flex px-4 flex-col w-full h-full bg-bg items-center justify-center">
                 {/* <Button onClick={() => console.log("hello world!")}> hello! </Button> */}
 
                 <div className="flex w-screen flex-col items-center justify-center gap-5">
                     {arts.length === 0 ? (
-                        <div className="flex justify-center items-center spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-                            <span>LOADING...</span>
-                        </div>
+                        <Spinner />
+
                     ) : (
                         arts.map((art) => {
                             return (
@@ -72,7 +71,7 @@ export const Feed = () => {
                     )}
                 </div>
 
-                {/* button absolutely positioned at the bottom right */}
+                {/* publish button absolutely positioned at the bottom right */}
                 <div className="fixed bottom-10 right-10">
                     <Link href="/publish">
 
@@ -85,4 +84,13 @@ export const Feed = () => {
             </div >
         </>
     );
-};  
+};
+
+export const Spinner = () => {
+    return (
+        <div className="flex justify-center items-center spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+            <span>LOADING...</span>
+        </div>
+
+    )
+}

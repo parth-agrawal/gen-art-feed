@@ -23,7 +23,6 @@ const FeedScreen = async () => {
         <>
             <div className="flex flex-col">
 
-                <Navbar />
                 <Feed />
             </div>
         </>
