@@ -53,7 +53,7 @@ export const Feed = () => {
 
     return (
         <>
-            <div className="flex flex-col w-full h-full items-center justify-center">
+            <div className="flex flex-col w-full h-full bg-bg items-center justify-center">
                 {/* <Button onClick={() => console.log("hello world!")}> hello! </Button> */}
 
                 <div className="flex w-screen flex-col items-center justify-center gap-5">
