@@ -32,7 +32,6 @@ export default function Home() {
 
         <SignedIn>
 
-          <Feed />
           <div className="flex flex-col gap-4 items-center justify-center">
             You&apos;re signed in!
             <div className="border border-black rounded-md p-2">

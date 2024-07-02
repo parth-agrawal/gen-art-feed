@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Box3HelperProps, Canvas, MeshProps, extend, useFrame } from "@react-three/fiber";
 import React, { useRef, useState } from 'react'
 import { Color, GridHelper, Mesh } from "three";
+import ImageCard from "@/components/ImageCard";
 
 extend({ GridHelper });
 
@@ -57,34 +58,32 @@ export const ArtInterpreter = ({ boxCount }: { boxCount: number }) => {
 
 
 
-
-
-
-
     return (
-        <Canvas>
-            {/* <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} /> */}
+        <>
 
-            <ambientLight intensity={Math.PI / 2} />
-            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-            <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+            <Canvas>
+                {/* <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} /> */}
 
-            {Array.from({ length: boxCount }).map((_, idx) => {
-                let boxX = 0;
-                if (idx % 2 == 0) {
-                    boxX = -idx - 0.5;
+                <ambientLight intensity={Math.PI / 2} />
+                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+                <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
 
-                }
-                else {
-                    boxX = idx + 0.5;
-                }
-                return (<Box key={idx} position={[boxX, 0, 0]} />)
+                {Array.from({ length: boxCount }).map((_, idx) => {
+                    let boxX = 0;
+                    if (idx % 2 == 0) {
+                        boxX = -idx - 0.5;
 
-            })}
+                    }
+                    else {
+                        boxX = idx + 0.5;
+                    }
+                    return (<Box key={idx} position={[boxX, 0, 0]} />)
+                })}
 
-            {/* <Box position={[-1.2, 0, 0]} />
+                {/* <Box position={[-1.2, 0, 0]} />
             <Box position={[1.2, 0, 0]} /> */}
-        </Canvas>
+            </Canvas>
+        </>
 
     )
 

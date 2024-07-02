@@ -2,6 +2,7 @@
 
 import { auth, currentUser } from "@clerk/nextjs/server";
 import prisma from "../../../prisma/client";
+import { User } from "@prisma/client";
 
 
 export async function handlePublish(boxCount: number) {
@@ -33,3 +34,16 @@ export async function handlePublish(boxCount: number) {
     }
 
 }
+
+// fetch a user by their author id
+export async function getUserByAuthorId(authorId: string): Promise<User | null> {
+    const user = await prisma.user.findUnique({
+        where: {
+            id: authorId
+        }
+    })
+    if (!user) return null;
+    return user
+}
+
+

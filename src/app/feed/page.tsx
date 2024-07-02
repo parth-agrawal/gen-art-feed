@@ -3,6 +3,7 @@ import { redirect, useRouter } from "next/navigation";
 import { currentUser } from "@clerk/nextjs/server";
 import { Feed } from "./Feed";
 import { getArts } from "./data";
+import { Navbar } from "@/components/Navbar";
 
 const FeedScreen = async () => {
     const feed = await getArts(); // this will be revalidated
@@ -19,9 +20,13 @@ const FeedScreen = async () => {
 
 
     return (
-        <div>
-            <Feed />
-        </div>
+        <>
+            <div className="flex flex-col">
+
+                <Navbar />
+                <Feed />
+            </div>
+        </>
     );
 };
 
