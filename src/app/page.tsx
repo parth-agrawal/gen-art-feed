@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { ArtInterpreter } from "./ArtInterpreter";
+import { ArtInterpreter } from "./publish/components/ArtInterpreter";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SignInButton, SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useState } from "react";

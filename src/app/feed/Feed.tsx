@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getArts } from "./actions";
-import { ArtInterpreter } from "@/app/ArtInterpreter";
+import { ArtInterpreter } from "@/app/publish/components/ArtInterpreter";
 import { Art } from "@prisma/client";
 import Link from "next/link";
 import Button from "@/components/Button";

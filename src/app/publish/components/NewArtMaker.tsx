@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react"
-import { ArtInterpreter } from "../ArtInterpreter"
-import { ArtControls } from "../ArtControls"
-import { getUserByClerkId, handlePublish } from "./actions";
+import { ArtInterpreter } from "./ArtInterpreter"
+import { ArtControls } from "./ArtControls"
+import { getUserByClerkId, handlePublish } from "../actions";
 import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
 import { currentUser, getAuth } from "@clerk/nextjs/server";
@@ -15,36 +15,17 @@ import { useFoundUser } from "@/providers/UserProvider";
 export const NewArtMaker = () => {
 
     const [boxCount, setBoxCount] = useState<number>(1)
-    // const [user, setUser] = useState<User | null>(null)
-
-
-    // async function pullUser() {
-    //     const clerkUser = await useAuth()
-    //     if (!clerkUser || !clerkUser.userId) return
-    //     const user = await getUserByClerkId(clerkUser.userId)
-
-    //     setUser(user)
-    // }
-
-    // let name = ""
-    // if (user) {
-    //     if (user.name) name = user.name;
-    //     else name = "";
-    // }
 
     const user = useFoundUser()
 
     return (
-        <div className="flex flex-col h-screen items-center justify-center bg-bg">
+        <div className="flex flex-col h-screen items-center justify-center  bg-bg">
             <ImageCard description={"Creator: " + user?.name}>
 
-                <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} />
                 <ArtInterpreter boxCount={boxCount} />
             </ImageCard>
 
-            <div>
-                Controls go here
-            </div>
+            <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} />
 
             <div className="flex flex-row w-full justify-between">
 
