@@ -1,4 +1,6 @@
-This is a generative art feed for usesrs to create generative art and share it with their friends.
+This is a generative art feed for users to create generative art and share it with their friends.
+
+**Try it here! https://generative-art-feed.vercel.app/**
 
 My tweet thread about this project: https://x.com/mr_samosaman/status/1807922045348405429
 
