@@ -46,4 +46,16 @@ export async function getUserByAuthorId(authorId: string): Promise<User | null> 
     return user
 }
 
+// fetch a user by their clerk id
+export async function getUserByClerkId(clerkId: string): Promise<User | null> {
+    const user = await prisma.user.findUnique({
+        where: {
+            ClerkId: clerkId
+        }
+    })
+    if (!user) return null;
+    return user
+}
+
+
 

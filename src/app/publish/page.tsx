@@ -8,7 +8,8 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { useAuth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { handlePublish } from "./actions";
-import NewArtMaker from "./components/NewArtMaker";
+import NewArtMaker from "./NewArtMaker";
+import { Navbar } from "@/components/Navbar";
 
 const PublishScreen = async () => {
 
@@ -30,6 +31,7 @@ const PublishScreen = async () => {
 
     return (
         <div>
+            <Navbar />
             <NewArtMaker />
         </div>
     )

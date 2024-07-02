@@ -12,6 +12,8 @@ export const Navbar = () => {
             <div className="tracking-[2px] flex flex-row w-full text-3xl items-start border-b-4 border-black p-5">
                 ENDLESS FORMS MOST BEAUTIFUL
             </div>
+
+
         </div>
     )
 }
