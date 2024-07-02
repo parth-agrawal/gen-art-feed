@@ -14,12 +14,12 @@ import { useFoundUser } from "@/providers/UserProvider";
 
 export const NewArtMaker = () => {
 
-    const [boxCount, setBoxCount] = useState<number>(1)
+    const [boxCount, setBoxCount] = useState<number>(5)
 
     const user = useFoundUser()
 
     return (
-        <div className="flex flex-col h-screen items-center justify-center  bg-bg">
+        <div className="flex flex-col mt-10 items-center justify-center gap-20">
             <ImageCard description={"Creator: " + user?.name}>
 
                 <ArtInterpreter boxCount={boxCount} />
@@ -27,13 +27,12 @@ export const NewArtMaker = () => {
 
             <ArtControls boxCount={boxCount} setBoxCount={setBoxCount} />
 
-            <div className="flex flex-row w-full justify-between">
+            <div className="flex flex-row justify-around w-full ">
 
                 <Link href="/feed">
 
                     <Button onClick={() => { }}> Back to feed </Button>
                 </Link>
-
 
 
                 <Button onClick={() => handlePublish(boxCount)}> Publish </Button>
