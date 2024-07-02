@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { Art } from "@prisma/client";
 import { Feed } from "./components/Feed";
 
-export const FeedScreen = () => {
+const FeedScreen = () => {
 
 
 
@@ -34,7 +34,6 @@ export const FeedScreen = () => {
     return (
         <div>
             <Feed />
-
 
         </div>
     );
