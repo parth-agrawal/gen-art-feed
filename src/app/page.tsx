@@ -22,13 +22,13 @@ export default function Home() {
 
             You need to sign in
           </div>
-          <SignInButton forceRedirectUrl={"/api/sign-up-callback"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
+          <SignInButton forceRedirectUrl={"/"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
             Sign in boiii
           </SignInButton>
         </SignedOut>
 
         <SignedIn>
-          You're signed in!
+          You&apos;re signed in!
           <SignOutButton>Sign out my homie</SignOutButton>
         </SignedIn>
       </div >
