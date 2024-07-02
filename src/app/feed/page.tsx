@@ -1,31 +1,18 @@
-"use client";
-
-import { useAuth } from "@clerk/nextjs";
-import prisma from "../../../prisma/client";
-import { ArtInterpreter } from "../ArtInterpreter";
+"use server";
 import { redirect, useRouter } from "next/navigation";
-import { auth } from "@clerk/nextjs/server";
-import { get } from "http";
-import { getArts } from "./actions";
-import { useEffect, useState } from "react";
-import { Art } from "@prisma/client";
-import { Feed } from "./components/Feed";
+import { currentUser } from "@clerk/nextjs/server";
+import { Feed } from "./Feed";
+import { getArts } from "./data";
 
-const FeedScreen = () => {
+const FeedScreen = async () => {
+    const feed = await getArts(); // this will be revalidated
 
 
-
-    const router = useRouter();
-
-    const user = useAuth();
+    const clerkUser = await currentUser();
 
 
-
-    if (!user.isLoaded) {
-        return <div>Loading...</div>
-    }
-    if (!user.isSignedIn) {
-        return router.push("/")
+    if (!clerkUser) {
+        return redirect("/");
     }
 
 
@@ -34,7 +21,6 @@ const FeedScreen = () => {
     return (
         <div>
             <Feed />
-
         </div>
     );
 };

@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { SignInButton, SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useState } from "react";
 import Link from "next/link";
+import { Feed } from "./feed/Feed";
 
 export default function Home() {
 
@@ -13,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-screen flex flex-col justify-center items-center">
+      <div className="h-screen w-screen flex flex-col justify-center items-center">
 
         gang gang!
 
@@ -30,6 +31,8 @@ export default function Home() {
 
 
         <SignedIn>
+
+          <Feed />
           <div className="flex flex-col gap-4 items-center justify-center">
             You&apos;re signed in!
             <div className="border border-black rounded-md p-2">
