@@ -93,7 +93,7 @@ export const Feed = () => {
                     ) : (
                         arts.map((art) => {
                             return (
-                                <ImageCard description={"Creator:" + art.Author.name || ""}>
+                                <ImageCard key={art.id} description={"Creator:" + art.Author.name || ""}>
                                     <ArtInterpreter key={art.id} boxCount={art.boxCount} />
                                 </ImageCard>
                             );
