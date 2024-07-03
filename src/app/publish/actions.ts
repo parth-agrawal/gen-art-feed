@@ -3,6 +3,7 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import prisma from "../../../prisma/client";
 import { User } from "@prisma/client";
+import { redirect } from "next/navigation";
 
 
 export async function handlePublish(boxCount: number) {
@@ -32,6 +33,8 @@ export async function handlePublish(boxCount: number) {
         console.log("Art created", art)
         return art
     }
+
+    redirect("/feed")
 
 }
 

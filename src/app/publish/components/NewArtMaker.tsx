@@ -11,16 +11,23 @@ import ImageCard from "@/components/ImageCard";
 import { User } from "@prisma/client";
 import Button from "@/components/Button";
 import { useFoundUser } from "@/providers/UserProvider";
+import { useRouter } from "next/navigation";
 
 export const NewArtMaker = () => {
 
     const [boxCount, setBoxCount] = useState<number>(5)
+    const router = useRouter()
 
     const user = useFoundUser()
 
+    const localHandlePublish = async () => {
+        await handlePublish(boxCount)
+        router.push("/feed")
+    }
+
     return (
         <div className="flex flex-col mt-10 items-center justify-center gap-20">
-            <ImageCard description={"Creator: " + user?.name}>
+            <ImageCard description={user ? "Creator: " + user.name : "Creator: Guest"}>
 
                 <ArtInterpreter boxCount={boxCount} />
             </ImageCard>
@@ -35,7 +42,7 @@ export const NewArtMaker = () => {
                 </Link>
 
 
-                <Button onClick={() => handlePublish(boxCount)}> Publish </Button>
+                <Button onClick={localHandlePublish}> Publish </Button>
 
             </div>
         </div>

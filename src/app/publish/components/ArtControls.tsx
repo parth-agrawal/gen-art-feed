@@ -40,7 +40,7 @@ export const ArtControls = ({ boxCount, setBoxCount }: {
                     )}
                     {activeTab === 'Box Color' && (
                         <div>
-                            <h3>Tab 2</h3>
+                            <h3>Box Color - coming soon!</h3>
 
                             <p className="mt-2">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
