@@ -26,7 +26,7 @@ export const Navbar = () => {
             <div>
                 <SignedOut>
 
-                    <SignInButton>
+                    <SignInButton forceRedirectUrl={"/"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
                         <Button onClick={() => { }}>Sign in</Button>
                     </SignInButton>
                 </SignedOut>
