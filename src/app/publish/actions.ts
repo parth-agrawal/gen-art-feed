@@ -25,11 +25,14 @@ export const optionalUserGuard = async () => {
                 ClerkId: clerkUser.id
             }
         })
+        return newUser;
     }
+
+    return user;
 }
 
 export async function handlePublish(boxCount: number) {
-    await optionalUserGuard()
+    optionalUserGuard()
 
     console.log("handle publish")
     const clerkAuth = await auth();
@@ -67,7 +70,7 @@ export async function handlePublish(boxCount: number) {
 
 // fetch a user by their author id
 export async function getUserByAuthorId(authorId: string): Promise<User | null> {
-    await optionalUserGuard()
+    optionalUserGuard()
 
     const user = await prisma.user.findUnique({
         where: {
@@ -80,7 +83,7 @@ export async function getUserByAuthorId(authorId: string): Promise<User | null> 
 
 // fetch a user by their clerk id
 export async function getUserByClerkId(clerkId: string): Promise<User | null> {
-    await optionalUserGuard()
+    optionalUserGuard()
 
     const user = await prisma.user.findUnique({
         where: {

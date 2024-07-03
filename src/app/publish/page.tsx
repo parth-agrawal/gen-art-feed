@@ -14,13 +14,9 @@ import { Navbar } from "@/components/Navbar";
 const PublishScreen = async () => {
 
     const clerkUser = await currentUser();
-    useEffect(() => {
-        if (clerkUser) {
-            getUserByClerkId(clerkUser.id)
-        }
-        optionalUserGuard()
 
-    }, [])
+    optionalUserGuard()
+
 
 
     if (!clerkUser) {
