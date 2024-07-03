@@ -18,22 +18,28 @@ export const Navbar = () => {
 
 
 
+
     return (
-        <div className="flex flex-row w-full justify-between border-b-4 border-black p-5" >
+        <div className="flex flex-row w-full justify-between gap-5 border-b-4 border-black p-5" >
             <div className="tracking-[2px] flex flex-row w-full text-3xl items-start ">
                 ENDLESS FORMS MOST BEAUTIFUL
             </div>
             <div>
                 <SignedOut>
 
+
                     <SignInButton forceRedirectUrl={"/"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
-                        <Button onClick={() => { }}>Sign in</Button>
+                        <div className="flex w-[100px]">
+                            <Button onClick={() => { }}>Sign in</Button>
+                        </div>
                     </SignInButton>
                 </SignedOut>
                 <SignedIn>
 
                     {/* <Avatar imageUrl={avatarImage || ""} /> */}
                     <UserButton />
+
+
 
 
 
