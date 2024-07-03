@@ -3,6 +3,7 @@
 import { Art } from "@prisma/client";
 import prisma from "../../../prisma/client";
 import { Author } from "next/dist/lib/metadata/types/metadata-types";
+import { optionalUserGuard } from "../publish/actions";
 type ArtWithAuthor = ({
     Author: {
         id: string;
@@ -23,6 +24,8 @@ type ArtWithAuthor = ({
 })[]
 
 export const getArts = async (): Promise<ArtWithAuthor> => {
+    await optionalUserGuard()
+
     const arts = await prisma.art.findMany({
         include: {
             Author: true
