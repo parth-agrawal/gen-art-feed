@@ -7,52 +7,55 @@ import { SignInButton, SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-r
 import { useState } from "react";
 import Link from "next/link";
 import { Feed } from "./feed/Feed";
+import { redirect } from "next/navigation";
 
 export default function Home() {
 
+  return (redirect("/feed"))
 
 
-  return (
-    <>
-      <div className="h-screen w-screen flex flex-col justify-center items-center">
 
-        gang gang!
+  // return (
+  //   <>
+  //     <div className="h-screen w-screen flex flex-col justify-center items-center">
 
-
-        <SignedOut >
-          <div>
-
-            You need to sign in
-          </div>
-          <SignInButton forceRedirectUrl={"/"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
-            Sign in boiii
-          </SignInButton>
-        </SignedOut>
+  //       gang gang!
 
 
-        <SignedIn>
+  //       <SignedOut >
+  //         <div>
 
-          <div className="flex flex-col gap-4 items-center justify-center">
-            You&apos;re signed in!
-            <div className="border border-black rounded-md p-2">
-              <SignOutButton>Sign out</SignOutButton>
-            </div>
-            <div className="border border-black rounded-md p-2">
-              <Link href="/feed">
-                View art feed
-              </Link>
-            </div>
-            <div className="border border-black rounded-md p-2">
-
-              <Link href="/publish">
-                Publish a new piece of art
-              </Link>
-            </div>
-          </div>
-        </SignedIn>
-      </div >
+  //           You need to sign in
+  //         </div>
+  //         <SignInButton forceRedirectUrl={"/"} signUpForceRedirectUrl={"/api/sign-up-callback"}>
+  //           Sign in boiii
+  //         </SignInButton>
+  //       </SignedOut>
 
 
-    </>
-  );
+  //       <SignedIn>
+
+  //         <div className="flex flex-col gap-4 items-center justify-center">
+  //           You&apos;re signed in!
+  //           <div className="border border-black rounded-md p-2">
+  //             <SignOutButton>Sign out</SignOutButton>
+  //           </div>
+  //           <div className="border border-black rounded-md p-2">
+  //             <Link href="/feed">
+  //               View art feed
+  //             </Link>
+  //           </div>
+  //           <div className="border border-black rounded-md p-2">
+
+  //             <Link href="/publish">
+  //               Publish a new piece of art
+  //             </Link>
+  //           </div>
+  //         </div>
+  //       </SignedIn>
+  //     </div >
+
+
+  //   </>
+  // );
 }

@@ -10,7 +10,9 @@ import { revalidatePath } from "next/cache";
 import ImageCard from "@/components/ImageCard";
 import { getUserByAuthorId } from "../publish/actions";
 import { Author } from "next/dist/lib/metadata/types/metadata-types";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
+import { SignIn, useSignIn } from "@clerk/clerk-react";
 
 type ArtWithAuthor = ({
     Author: {
@@ -31,10 +33,14 @@ type ArtWithAuthor = ({
     authorId: string;
 })[]
 
+
+
 export const Feed = () => {
 
     const [timeCount, setTimeCount] = useState<number>(0);
     const [arts, setArts] = useState<ArtWithAuthor>([]);
+    const user = useAuth();
+    const router = useRouter();
 
     useEffect(() => {
         const pull = async () => {
@@ -50,6 +56,30 @@ export const Feed = () => {
 
         return () => clearTimeout(timeout);
     }, [timeCount]);
+
+
+
+
+
+    const handlePubNav = async () => {
+
+        console.log(user)
+        if (user.isSignedIn) {
+
+            router.push("/publish");
+
+        }
+        else {
+            router.push("/api/sign-in");
+
+
+
+        }
+
+
+    }
+
+
 
     return (
         <>
@@ -73,10 +103,10 @@ export const Feed = () => {
 
                 {/* publish button absolutely positioned at the bottom right */}
                 <div className="fixed bottom-10 right-10">
-                    <Link href="/publish">
+                    {/* <Link href="/publish"> */}
 
-                        <Button onClick={() => { }}> Create your own </Button>
-                    </Link>
+                    <Button onClick={handlePubNav}> Create your own </Button>
+                    {/* </Link> */}
 
                 </div>
 
