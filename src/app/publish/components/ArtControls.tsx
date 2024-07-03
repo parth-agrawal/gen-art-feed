@@ -31,7 +31,7 @@ export const ArtControls = ({ boxCount, setBoxCount }: {
                     setActiveTab={setActiveTab}
                     tabsArray={TabsArray}
                 />
-                <div className="max-w-full h-full rounded-b-base border-2 border-border dark:border-darkBorder bg-white dark:bg-darkBg p-5 font-base">
+                <div className="max-w-full h-full rounded-b-base border-2 border-border  bg-white p-5 font-base">
                     {activeTab === 'Box Count' && (
                         <div className="flex flex-col items-center gap-5">
                             <RangeSlider rangeValue={boxCount} setRangeValue={setBoxCount} min={1} max={30} />
