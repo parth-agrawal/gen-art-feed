@@ -91,9 +91,9 @@ export const Feed = () => {
                         <Spinner />
 
                     ) : (
-                        arts.map((art) => {
+                        arts.slice().reverse().map((art) => {
                             return (
-                                <ImageCard key={art.id} description={"Creator:" + art.Author.name || ""}>
+                                <ImageCard key={art.id} description={"Creator: " + art.Author.name || "Guest"}>
                                     <ArtInterpreter key={art.id} boxCount={art.boxCount} />
                                 </ImageCard>
                             );
