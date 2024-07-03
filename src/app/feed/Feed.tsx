@@ -83,13 +83,12 @@ export const Feed = () => {
 
     return (
         <>
-            <div className="flex px-4 flex-col w-full h-full bg-bg items-center justify-center">
-                {/* <Button onClick={() => console.log("hello world!")}> hello! </Button> */}
-
-                <div className="flex w-screen flex-col items-center justify-center gap-5">
-                    {arts.length === 0 ? (
-                        <Spinner />
-
+            <div className={`flex flex-col px-4 w-full h-full bg-bg justify-${arts.length === 0 ? 'center' : 'start'} items-center`}>
+                <div className={`flex flex-col w-screen items-center gap-5`}>
+                    {arts.length == 0 ? (
+                        <div className="flex ">
+                            <Spinner />
+                        </div>
                     ) : (
                         arts.slice().reverse().map((art) => {
                             return (
@@ -101,16 +100,9 @@ export const Feed = () => {
                     )}
                 </div>
 
-                {/* publish button absolutely positioned at the bottom right */}
                 <div className="fixed bottom-10 right-10">
-                    {/* <Link href="/publish"> */}
-
                     <Button onClick={handlePubNav}> Create your own </Button>
-                    {/* </Link> */}
-
                 </div>
-
-
             </div >
         </>
     );

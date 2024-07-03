@@ -21,8 +21,7 @@ const FeedScreen = async () => {
 
     return (
         <>
-            <div className="flex flex-col">
-
+            <div className="flex flex-col h-screen items-center ">
                 <Feed />
             </div>
         </>
