@@ -1,5 +1,5 @@
-import { auth, redirectToSignIn } from "@clerk/nextjs/server"
+import { auth, redirectToSignIn } from "@clerk/nextjs/server";
 
 export const GET = () => {
-    return auth().redirectToSignIn({ returnBackUrl: "/publish" })
-}
+  return auth().redirectToSignIn({ returnBackUrl: "/api/sign-up-callback" });
+};
