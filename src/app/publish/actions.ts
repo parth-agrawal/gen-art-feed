@@ -6,7 +6,34 @@ import { User } from "@prisma/client";
 import { redirect } from "next/navigation";
 
 
+export const optionalUserGuard = async () => {
+    const clerkUser = await currentUser()
+
+    console.log("clerk user", clerkUser)
+
+    if (!clerkUser) return;
+
+    const userId = clerkUser.id
+    const user = clerkUser ? await getUserByClerkId(clerkUser.id) : null
+    console.log("user", user)
+
+    if (!user) {
+        const newUser = await prisma.user.create({
+            data: {
+                email: clerkUser.emailAddresses[0].emailAddress,
+                name: clerkUser.username,
+                ClerkId: clerkUser.id
+            }
+        })
+        return newUser;
+    }
+
+    return user;
+}
+
 export async function handlePublish(boxCount: number) {
+    optionalUserGuard()
+
     console.log("handle publish")
     const clerkAuth = await auth();
     console.log("auth", clerkAuth)
@@ -18,6 +45,9 @@ export async function handlePublish(boxCount: number) {
             ClerkId: clerkAuth.userId
         }
     })
+
+    console.log(""
+    )
 
     // TODO: create a user if they don't exist
     if (currentUser) {
@@ -40,6 +70,8 @@ export async function handlePublish(boxCount: number) {
 
 // fetch a user by their author id
 export async function getUserByAuthorId(authorId: string): Promise<User | null> {
+    optionalUserGuard()
+
     const user = await prisma.user.findUnique({
         where: {
             id: authorId
@@ -51,6 +83,8 @@ export async function getUserByAuthorId(authorId: string): Promise<User | null> 
 
 // fetch a user by their clerk id
 export async function getUserByClerkId(clerkId: string): Promise<User | null> {
+    optionalUserGuard()
+
     const user = await prisma.user.findUnique({
         where: {
             ClerkId: clerkId
